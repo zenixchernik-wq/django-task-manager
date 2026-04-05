@@ -1,0 +1,16 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Вход{% endblock title %}
+
+{% block content %}
+    <h1>Вход</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Логин">
+        <input type="password" name="password" placeholder="Пароль">
+        <button type="submit">Войти</button>
+    </form>
+
+    <p>{{ error }}</p>
+{% endblock content %}

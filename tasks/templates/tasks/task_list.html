@@ -1,0 +1,32 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Задачи{% endblock title %}
+
+{% block content %}
+    <h1>Все задачи</h1>
+
+    {% for task in tasks %}
+        <div>
+            <p><strong>{{ task.title }}</strong></p>
+
+            {% if task.is_done %}
+                <p>Статус: Выполнено</p>
+            {% else %}
+                <p>Статус: Не выполнено</p>
+            {% endif %}
+
+            <p>Категория: {{ task.category.name }}</p>
+
+            {% for tag in task.tags.all %}
+                <p>Тег: {{ tag.name }}</p>
+            {% empty %}
+                <p>Тегов нет</p>
+            {% endfor %}
+
+            <a href="{% url 'task_detail' task.id %}">Подробнее</a>
+            <hr>
+        </div>
+    {% empty %}
+        <p>Задач пока нет</p>
+    {% endfor %}
+{% endblock content %}

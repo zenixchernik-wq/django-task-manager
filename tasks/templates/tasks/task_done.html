@@ -1,0 +1,14 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Выполненные задачи{% endblock title %}
+
+{% block content %}
+    <h1>Выполненные задачи</h1>
+
+    {% for task in tasks %}
+        <p>{{ task.title }}</p>
+        <hr>
+    {% empty %}
+        <p>Выполненных задач нет</p>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Task Manager{% endblock title %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Главная</a>
+        <a href="{% url 'profile_list' %}">Профили</a>
+        <a href="{% url 'profile_create' %}">Создать профиль</a>
+        <a href="{% url 'task_list' %}">Задачи</a>
+        <a href="{% url 'task_create' %}">Создать задачу</a>
+        <a href="{% url 'task_done' %}">Выполненные</a>
+
+        {% if user.is_authenticated %}
+            <span>Привет, {{ user.username }}</span>
+            <a href="{% url 'logout_page' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'login_page' %}">Войти</a>
+            <a href="{% url 'register_page' %}">Регистрация</a>
+        {% endif %}
+    </nav>
+    <hr>
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

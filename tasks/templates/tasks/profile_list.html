@@ -1,0 +1,46 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Профили{% endblock title %}
+
+{% block content %}
+    <h1>Список профилей</h1>
+
+    <form method="get">
+        <input type="text" name="q" placeholder="Поиск по имени" value="{{ query|default:'' }}">
+        <button type="submit">Найти</button>
+    </form>
+
+    <hr>
+
+    {% for profile in page_obj %}
+        <div>
+            <p><strong>{{ profile.name }}</strong></p>
+            <p>{{ profile.bio }}</p>
+
+            {% if profile.avatar %}
+                <img src="{{ profile.avatar.url }}" alt="{{ profile.name }}" width="150">
+            {% endif %}
+
+            <p>
+                <a href="{% url 'profile_detail' profile.id %}">Подробнее</a>
+            </p>
+            <hr>
+        </div>
+    {% empty %}
+        <p>Профили не найдены</p>
+    {% endfor %}
+
+    <div>
+        {% if page_obj.has_previous %}
+            <a href="?page=1{% if query %}&q={{ query }}{% endif %}">Первая</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Назад</a>
+        {% endif %}
+
+        <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Вперёд</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">Последняя</a>
+        {% endif %}
+    </div>
+{% endblock content %}

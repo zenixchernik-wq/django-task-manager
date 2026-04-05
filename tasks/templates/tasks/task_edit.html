@@ -1,0 +1,13 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Редактирование задачи{% endblock title %}
+
+{% block content %}
+    <h1>Редактирование задачи</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Задачи по категории{% endblock title %}
+
+{% block content %}
+    <h1>Категория: {{ category.name }}</h1>
+
+    {% for task in tasks %}
+        <p>{{ task.title }}</p>
+        <hr>
+    {% empty %}
+        <p>Задач в этой категории нет</p>
+    {% endfor %}
+{% endblock content %}
