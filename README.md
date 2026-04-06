@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Task Manager
+=======
+# Django Task Manager
+>>>>>>> 33b3c9bfd3098d886a1cd91ca0552792f6261569
 
 Учебный backend-проект на Django для управления задачами и профилями пользователей.
 
@@ -32,10 +36,14 @@
 - работа с `ModelForm`
 - загрузка изображений через `ImageField`
 
+<<<<<<< HEAD
 ---
 
 ## Стек
 
+=======
+## Стек
+>>>>>>> 33b3c9bfd3098d886a1cd91ca0552792f6261569
 - Python
 - Django
 - SQLite
@@ -43,11 +51,16 @@
 - CSS
 - Pillow
 
+<<<<<<< HEAD
 ---
 
 ## Что реализовано в проекте
 
 - `CRUD` для задач
+=======
+## Что реализовано
+- CRUD для задач
+>>>>>>> 33b3c9bfd3098d886a1cd91ca0552792f6261569
 - аутентификация пользователей
 - поиск через `request.GET`
 - пагинация через `Paginator`
@@ -56,6 +69,7 @@
   - `ForeignKey`
   - `ManyToManyField`
 
+<<<<<<< HEAD
 ---
 
 ## Структура проекта
@@ -67,9 +81,38 @@
 
 ---
 
+=======
+>>>>>>> 33b3c9bfd3098d886a1cd91ca0552792f6261569
 ## Как запустить проект
 
 ### 1. Клонировать репозиторий
 ```bash
+<<<<<<< HEAD
 git clone <ссылка на репозиторий>
 cd task_manager
+=======
+git clone https://github.com/zenixchernik-wq/django-task-manager.git
+cd django-task-manager
+
+2. Создать виртуальное окружение
+python -m venv venv
+
+3. Активировать виртуальное окружение
+Windows
+venv\Scripts\activate
+Linux / macOS
+source venv/bin/activate
+
+4. Установить зависимости
+pip install -r requirements.txt
+
+5. Применить миграции
+python manage.py makemigrations
+python manage.py migrate
+
+6. Создать суперпользователя
+python manage.py createsuperuser
+
+7. Запустить сервер
+python manage.py runserver
+>>>>>>> 33b3c9bfd3098d886a1cd91ca0552792f6261569
